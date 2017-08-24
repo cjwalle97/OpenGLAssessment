@@ -11,6 +11,16 @@ Camera::~Camera()
 {
 }
 
+void update(float deltaTime)
+{
+
+}
+
+void setPerspective(float fieldOfView, float aspectRatio, float Near, float Far)
+{
+
+}
+
 void setLookAt(vec3 eye, vec3 center, vec3 up)
 {
 	vec3 f = eye - center;
@@ -28,4 +38,34 @@ void setLookAt(vec3 eye, vec3 center, vec3 up)
 	assert(View == Test);
 
 	mat4 M = glm::inverse(View);
+}
+
+void setPosition(vec3 postition)
+{
+
+}
+
+//mat4 getWorldTransform()
+//{
+//
+//}
+//
+//mat4 getView()
+//{
+//
+//}
+//
+//mat4 getProjection()
+//{
+//
+//}
+//
+//mat4 getProjectionView()
+//{
+//
+//}
+
+void updateProjectionViewTransform()
+{
+
 }

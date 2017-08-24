@@ -1,4 +1,5 @@
 #include "gl_core_4_4.h"
+#include "Camera.h"
 #include"Gizmos.h"
 #include <GLFW\glfw3.h>
 #include <stdio.h>
@@ -9,8 +10,17 @@
 #include <glm\ext.hpp>
 #include <iostream>
 
+
 int main()
 {
+	Camera* m_camera = new Camera();
+
+	vec3 eye = vec3(10, 10, 10);
+	vec3 center = vec3(0);
+	vec3 up = vec3(0, 1, 0);
+
+	m_camera->setLookAt(eye, center, up);
+
 	glm::vec3 v = glm::vec3(1, 1, 1);
 
 	if (!glfwInit())
