@@ -1,2 +1,11 @@
-﻿  GraphicsAssessment.vcxproj -> C:\Users\s178068\Downloads\cjw1176_Graphics\GraphicsAssessment\Debug\GraphicsAssessment.exe
-  GraphicsAssessment.vcxproj -> C:\Users\s178068\Downloads\cjw1176_Graphics\GraphicsAssessment\Debug\GraphicsAssessment.pdb (Partial PDB)
+﻿  FlyCamera.cpp
+  Generating Code...
+  Compiling...
+  Main.cpp
+c:\users\s178068\documents\github\cjw1176_graphics\graphicsassessment\graphicsassessment\main.cpp(35): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'int (__cdecl *)(void)'
+c:\users\s178068\documents\github\cjw1176_graphics\graphicsassessment\graphicsassessment\main.cpp(35): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'int (__cdecl *)(void)'
+  Generating Code...
+  LINK : C:\Users\s178068\Documents\GitHub\cjw1176_Graphics\GraphicsAssessment\Debug\GraphicsAssessment.exe not found or not built by the last incremental link; performing full link
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  GraphicsAssessment.vcxproj -> C:\Users\s178068\Documents\GitHub\cjw1176_Graphics\GraphicsAssessment\Debug\GraphicsAssessment.exe
+  GraphicsAssessment.vcxproj -> C:\Users\s178068\Documents\GitHub\cjw1176_Graphics\GraphicsAssessment\Debug\GraphicsAssessment.pdb (Partial PDB)
