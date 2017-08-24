@@ -18,4 +18,4 @@ protected:
 	void run();
 private:
 	void gameover();
-};
+};	
