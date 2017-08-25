@@ -31,6 +31,12 @@ void Camera::setOrthographic(float Left, float Right, float Bottom, float Top, f
 		vec4(0.f, (2/TBn), 0.f, 0.f), 
 		vec4(0.f, 0.f, (-2/FNn), 0.f), 
 		vec4((RLp/RLn), (TBp/TBn), (FNp/FNn), 1.f));
+	mat4 Test = mat4(
+		vec4(1.f, 0.f, 0.f, 0.f),
+		vec4(0.f, 1.f, 0.f, 0.f),
+		vec4(0.f, 0.f, -1.f, 0.f),
+		vec4(3.f, 3.f, 3.f, 1.f));
+	assert(Orthograph == Test);
 	m_projectionTransform = Orthograph;
 }
 

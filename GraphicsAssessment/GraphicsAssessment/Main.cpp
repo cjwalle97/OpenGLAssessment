@@ -1,4 +1,3 @@
-#include "gl_core_4_4.h"
 #include "Camera.h"
 #include"Gizmos.h"
 #include <GLFW\glfw3.h>
@@ -15,13 +14,20 @@ int main()
 {
 	mat4 local = mat4(0.f);
 	mat4 model = mat4(1.f);
+	float Left = 2.f;
+	float Right = 4.f;
+	float Bottom = 2.f;
+	float Top = 4.f;
+	float Near = 2.f;
+	float Far = 4.f;
+
 	Camera* m_camera = new Camera(local, model);
 
 	vec3 eye = vec3(10, 10, 10);
 	vec3 center = vec3(0);
 	vec3 up = vec3(0, 1, 0);
 
-	m_camera->setLookAt(eye, center, up);
+	m_camera->setOrthographic(Left, Right, Bottom, Top, Near, Far);
 
 	glm::vec3 v = glm::vec3(1, 1, 1);
 

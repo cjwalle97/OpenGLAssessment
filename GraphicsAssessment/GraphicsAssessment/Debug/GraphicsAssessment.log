@@ -1,2 +1,4 @@
-﻿  GraphicsAssessment.vcxproj -> C:\Users\s178068\Documents\GitHub\cjw1176_Graphics\GraphicsAssessment\Debug\GraphicsAssessment.exe
+﻿  Camera.cpp
+cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
+  GraphicsAssessment.vcxproj -> C:\Users\s178068\Documents\GitHub\cjw1176_Graphics\GraphicsAssessment\Debug\GraphicsAssessment.exe
   GraphicsAssessment.vcxproj -> C:\Users\s178068\Documents\GitHub\cjw1176_Graphics\GraphicsAssessment\Debug\GraphicsAssessment.pdb (Partial PDB)

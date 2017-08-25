@@ -26,15 +26,15 @@ public:
 	Camera(mat4 l, mat4 m);
 	~Camera();
 
-	virtual void update(float deltaTime) {}
-	void setOrthographic(float Left, float Right, float Bottom, float Top, float Near, float Far){}
-	void setPerspective(float fieldOfView, float aspectRatio, float Near, float Far) {}
-	void setLookAt(vec3 eye, vec3 center, vec3 up) {}
-	void setPosition(vec3 position) {}
-	mat4 getWorldTransform() {}
-	mat4 getView() {}
-	mat4 getProjection() {}
-	mat4 getProjectionView() {}
-	void UpdateProjectionViewTransform() {}
+	virtual void update(float deltaTime);
+	void setOrthographic(float Left, float Right, float Bottom, float Top, float Near, float Far);
+	void setPerspective(float fieldOfView, float aspectRatio, float Near, float Far);
+	void setLookAt(vec3 eye, vec3 center, vec3 up);
+	void setPosition(vec3 position);
+	mat4 getWorldTransform();
+	mat4 getView();
+	mat4 getProjection();
+	mat4 getProjectionView();
+	void UpdateProjectionViewTransform();
 
 };
