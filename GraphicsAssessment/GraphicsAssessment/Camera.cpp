@@ -4,30 +4,38 @@
 
 Camera::Camera()
 {
+
 }
 
 
 Camera::~Camera()
 {
+
 }
 
-void update(float deltaTime)
+void Camera::update(float deltaTime)
 {
 
 }
 
-void setPerspective(float fieldOfView, float aspectRatio, float Near, float Far)
+void Camera::setPerspective(float fieldOfView, float aspectRatio, float Near, float Far)
 {
 
 }
 
-void setLookAt(vec3 eye, vec3 center, vec3 up)
+void Camera::setPosition(vec3 position)
+{
+	m_cameraPosition = position;
+}
+
+void Camera::setLookAt(vec3 eye, vec3 center, vec3 up)
 {
 	vec3 f = eye - center;
 	vec3 z = glm::normalize(f);
 	vec3 s = glm::cross(up, z);
 	vec3 x = glm::normalize(s);
 	vec3 u = glm::cross(z, x);
+	vec3 y = u;
 	mat4 V = mat4(
 		vec4(x[0], x[1], x[2], 0.f),
 		vec4(y[0], y[1], y[2], 0.f),
@@ -39,38 +47,33 @@ void setLookAt(vec3 eye, vec3 center, vec3 up)
 		vec4(0.f, 0.f, 1.f, 0.f),
 		vec4(-eye.x, -eye.y, -eye.z, 1.f));
 	mat4 View = V * T;
-	//mat4 Test = ;
-	//assert(View == Test);
+	/*mat4 Test = ;
+	assert(View == Test);*/
 
 	mat4 M = glm::inverse(View);
 }
 
-void setPosition(vec3 postition)
+mat4 Camera::getWorldTransform()
 {
-
+	return m_worldTransform;
 }
 
-//mat4 getWorldTransform()
-//{
-//
-//}
-//
-//mat4 getView()
-//{
-//
-//}
-//
-//mat4 getProjection()
-//{
-//
-//}
-//
-//mat4 getProjectionView()
-//{
-//
-//}
+mat4 Camera::getView()
+{
+	return m_viewTransform;
+}
 
-void updateProjectionViewTransform()
+mat4 Camera::getProjection()
+{
+	return m_projectionTransform;
+}
+
+mat4 Camera::getProjectionView()
+{
+	return m_projectionViewTransform;
+}
+
+void Camera::UpdateProjectionViewTransform()
 {
 
 }
