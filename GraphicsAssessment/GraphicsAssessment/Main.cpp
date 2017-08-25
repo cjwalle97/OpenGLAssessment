@@ -13,7 +13,9 @@
 
 int main()
 {
-	Camera* m_camera = new Camera();
+	mat4 local = mat4(0.f);
+	mat4 model = mat4(1.f);
+	Camera* m_camera = new Camera(local, model);
 
 	vec3 eye = vec3(10, 10, 10);
 	vec3 center = vec3(0);

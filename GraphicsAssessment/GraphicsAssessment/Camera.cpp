@@ -2,11 +2,11 @@
 #include <assert.h>
 
 
-Camera::Camera()
+Camera::Camera(mat4 l, mat4 m)
 {
-
+	m_localSpace = l;
+	m_modelMatrx = m;
 }
-
 
 Camera::~Camera()
 {
@@ -18,9 +18,25 @@ void Camera::update(float deltaTime)
 
 }
 
+void Camera::setOrthographic(float Left, float Right, float Bottom, float Top, float Near, float Far)
+{
+	float RLp = Right + Left;
+	float RLn = Right - Left;
+	float TBp = Top + Bottom;
+	float TBn = Top - Bottom;
+	float FNp = Far + Near;
+	float FNn = Far - Near;
+	mat4 Orthograph = mat4(
+		vec4((2/RLn), 0.f, 0.f, 0.f), 
+		vec4(0.f, (2/TBn), 0.f, 0.f), 
+		vec4(0.f, 0.f, (-2/FNn), 0.f), 
+		vec4((RLp/RLn), (TBp/TBn), (FNp/FNn), 1.f));
+	m_projectionTransform = Orthograph;
+}
+
 void Camera::setPerspective(float fieldOfView, float aspectRatio, float Near, float Far)
 {
-
+	
 }
 
 void Camera::setPosition(vec3 position)
@@ -31,10 +47,10 @@ void Camera::setPosition(vec3 position)
 void Camera::setLookAt(vec3 eye, vec3 center, vec3 up)
 {
 	vec3 f = eye - center;
-	vec3 z = glm::normalize(f);
-	vec3 s = glm::cross(up, z);
-	vec3 x = glm::normalize(s);
-	vec3 u = glm::cross(z, x);
+	vec3 z = normalize(f);
+	vec3 s = cross(up, z);
+	vec3 x = normalize(s);
+	vec3 u = cross(z, x);
 	vec3 y = u;
 	mat4 V = mat4(
 		vec4(x[0], x[1], x[2], 0.f),
@@ -50,24 +66,21 @@ void Camera::setLookAt(vec3 eye, vec3 center, vec3 up)
 	/*mat4 Test = ;
 	assert(View == Test);*/
 
-	mat4 M = glm::inverse(View);
+	mat4 M = inverse(View);
 }
 
-mat4 Camera::getWorldTransform(mat4 model, mat4 local)
+mat4 Camera::getWorldTransform()
 {
-	m_worldTransform = model * local;
 	return m_worldTransform;
 }
 
 mat4 Camera::getView()
 {
-	m_viewTransform = glm::inverse(m_worldTransform);
 	return m_viewTransform;
 }
 
 mat4 Camera::getProjection()
 {
-
 	return m_projectionTransform;
 }
 
@@ -78,5 +91,5 @@ mat4 Camera::getProjectionView()
 
 void Camera::UpdateProjectionViewTransform()
 {
-
+	m_projectionViewTransform = m_projectionTransform * m_viewTransform;
 }

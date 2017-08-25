@@ -13,4 +13,3 @@ public:
 	virtual void update(float) override;
 	virtual void draw() override;
 };
-
