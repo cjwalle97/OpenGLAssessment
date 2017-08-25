@@ -53,18 +53,21 @@ void Camera::setLookAt(vec3 eye, vec3 center, vec3 up)
 	mat4 M = glm::inverse(View);
 }
 
-mat4 Camera::getWorldTransform()
+mat4 Camera::getWorldTransform(mat4 model, mat4 local)
 {
+	m_worldTransform = model * local;
 	return m_worldTransform;
 }
 
 mat4 Camera::getView()
 {
+	m_viewTransform = glm::inverse(m_worldTransform);
 	return m_viewTransform;
 }
 
 mat4 Camera::getProjection()
 {
+
 	return m_projectionTransform;
 }
 

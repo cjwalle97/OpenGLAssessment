@@ -12,10 +12,6 @@ class Camera
 {
 private:
 	vec3 m_cameraPosition;
-	mat4 m_modelMatrix;
-	mat4 m_projection;
-	mat4 m_projectionTest;
-	mat4 m_projectionView;
 	mat4 m_worldTransform;
 	mat4 m_viewTransform;
 	mat4 m_projectionTransform;
@@ -29,7 +25,7 @@ public:
 	void setPerspective(float fieldOfView, float aspectRatio, float Near, float Far) {}
 	void setLookAt(vec3 eye, vec3 center, vec3 up) {}
 	void setPosition(vec3 position) {}
-	mat4 getWorldTransform() {}
+	mat4 getWorldTransform(mat4 model, mat4 local) {}
 	mat4 getView() {}
 	mat4 getProjection() {}
 	mat4 getProjectionView() {}
