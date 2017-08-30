@@ -31,18 +31,29 @@ void Camera::setOrthographic(float Left, float Right, float Bottom, float Top, f
 		vec4(0.f, (2/TBn), 0.f, 0.f), 
 		vec4(0.f, 0.f, (-2/FNn), 0.f), 
 		vec4((RLp/RLn), (TBp/TBn), (FNp/FNn), 1.f));
-	mat4 Test = mat4(
+	/*mat4 Test = mat4(
 		vec4(1.f, 0.f, 0.f, 0.f),
 		vec4(0.f, 1.f, 0.f, 0.f),
 		vec4(0.f, 0.f, -1.f, 0.f),
 		vec4(3.f, 3.f, 3.f, 1.f));
-	assert(Orthograph == Test);
+	assert(Orthograph == Test);*/
 	m_projectionTransform = Orthograph;
 }
 
 void Camera::setPerspective(float fieldOfView, float aspectRatio, float Near, float Far)
 {
-	
+	mat4 Perspective = mat4(
+		vec4(aspectRatio * (1 / (fieldOfView / 2)), 0.f, 0.f, 0.f),
+		vec4(0.f, aspectRatio * (1 / (fieldOfView / 2)), 0.f, 0.f),
+		vec4(0.f, 0.f, (Far + Near)/(Far - Near), -1.f),
+		vec4(0.f, 0.f, (2 * (Far * Near))/(Far - Near), 0.f));
+	mat4 Test = mat4(
+		vec4(0.5, 0.f, 0.f, 0.f),
+		vec4(0.f, 0.5, 0.f, 0.f),
+		vec4(0.f, 0.f, 3, -1.f),
+		vec4(0.f, 0.f, 8, 0.f));
+	assert(Perspective == Test);
+	m_projectionTransform = Perspective;
 }
 
 void Camera::setPosition(vec3 position)
@@ -69,9 +80,6 @@ void Camera::setLookAt(vec3 eye, vec3 center, vec3 up)
 		vec4(0.f, 0.f, 1.f, 0.f),
 		vec4(-eye.x, -eye.y, -eye.z, 1.f));
 	mat4 View = V * T;
-	/*mat4 Test = ;
-	assert(View == Test);*/
-
 	mat4 M = inverse(View);
 }
 
