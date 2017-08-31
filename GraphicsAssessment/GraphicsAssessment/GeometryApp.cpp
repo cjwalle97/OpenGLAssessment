@@ -11,6 +11,8 @@ GeometryApp::~GeometryApp()
 {
 }
 
+
+
 // function to create a Grid
 void GeometryApp::generateGrid(unsigned int rows, unsigned int columns)
 {
@@ -72,4 +74,9 @@ void GeometryApp::generateGrid(unsigned int rows, unsigned int columns)
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 	delete[] aoVertices;
+}
+
+void GeometryApp::startup(int a, int b)
+{
+	generateGrid(a, b);
 }

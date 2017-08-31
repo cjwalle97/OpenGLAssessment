@@ -1,6 +1,7 @@
 #pragma once
 #include "Camera.h"
 #include "Gizmos.h"
+#include "Application.h"
 #include <GLFW\glfw3.h>
 #include <stdio.h>
 #include <assert.h>
@@ -10,7 +11,8 @@
 #include <glm\ext.hpp>
 #include <iostream>
 
-class CameraApp
+class CameraApp :
+	public Application
 {
 public:
 	CameraApp();
