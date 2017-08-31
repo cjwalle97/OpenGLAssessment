@@ -64,7 +64,7 @@ void GeometryApp::generateGrid(unsigned int rows, unsigned int columns)
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*) (sizeof(vec4)));
+	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)(sizeof(vec4)));
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
@@ -79,4 +79,23 @@ void GeometryApp::generateGrid(unsigned int rows, unsigned int columns)
 void GeometryApp::startup(int a, int b)
 {
 	generateGrid(a, b);
+
+	const char* vsSource = "#version 410\n \
+layout(location=0) in vec4 position; \
+layout(location=1) in vec4 color; \
+out vec4 vColor; \
+uniform mat4 projectionViewWorldMatrix; \
+void main() {vColor = color; gl_Position = projectionViewWorldMatrix * position; }";
+	
+	const char* fsSource = "#version 410\n \
+in vec4 vColor; \
+out vec4 fragColor; \
+void main() {fragColor = vColor;}";
+
+	int success = GL_FALSE;
+	unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
+	unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+
+	glShaderSource(vertexShader, 1, (const char**)&vsSource, 0);
+
 }
