@@ -97,5 +97,27 @@ void main() {fragColor = vColor;}";
 	unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 
 	glShaderSource(vertexShader, 1, (const char**)&vsSource, 0);
+	glCompileShader(vertexShader);
+	glShaderSource(fragmentShader, 1, (const char**)&fsSource, 0);
+	glCompileShader(fragmentShader);
 
+	m_programID = glCreateProgram();
+	glAttachShader(m_programID, vertexShader);
+	glAttachShader(m_programID, fragmentShader);
+	glLinkProgram(m_programID);
+
+	glGetProgramiv(m_programID, GL_INFO_LOG_LENGTH, &success);
+	if (success == GL_FALSE)
+	{
+		int infoLogLength = 0;
+		glGetProgramiv(m_programID, GL_INFO_LOG_LENGTH, &infoLogLength);
+		char* infoLog = new char[infoLogLength];
+
+		glGetProgramInfoLog(m_programID, infoLogLength, 0, infoLog);
+		printf("Error: Failed to link shader program!\n");
+		printf("%s\n", infoLog);
+		delete[] infoLog;
+	}
+	glDeleteShader(fragmentShader);
+	glDeleteShader(vertexShader);
 }
