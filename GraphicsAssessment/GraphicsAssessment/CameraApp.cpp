@@ -1,5 +1,14 @@
 #include "CameraApp.h"
-
+#include <GLFW\glfw3.h>
+#include <stdio.h>
+#include <assert.h>
+#include <glm\vec3.hpp>
+#include <glm\vec2.hpp>
+#include <glm\glm.hpp>
+#include <glm\ext.hpp>
+#include <iostream>
+#include <imgui.h>
+#include <imgui_impl_glfw_gl3.h>
 
 
 CameraApp::CameraApp() {}
