@@ -35,9 +35,4 @@ public:
 	void unbind() {}
 	unsigned int index_Count() {}
 	unsigned int vector_Count() {}
-
-	void startup() {}
-	void shutdown() {}
-	void update() {}
-	void draw() {}
 };

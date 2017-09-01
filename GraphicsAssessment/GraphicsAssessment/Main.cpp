@@ -13,7 +13,7 @@
 
 int main()
 {
-	GeometryApp* m_geoApp = new GeometryApp();
+	//GeometryApp* m_geoApp = new GeometryApp();
 	CameraApp* m_app = new CameraApp();
 
 	mat4 local = mat4(0.f);
@@ -30,7 +30,7 @@ int main()
 	int b = 4;
 
 
-	m_geoApp->startup(a, b);
+	//m_geoApp->startup(a, b);
 	Camera* m_camera = new Camera(local, model);
 
 	vec3 eye = vec3(10, 10, 10);

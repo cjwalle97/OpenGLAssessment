@@ -127,5 +127,5 @@ void main() {fragColor = vColor;}";
 
 void GeometryApp::startup(int a, int b)
 {
-	generateGrid(a, b);
+	GeometryApp::generateGrid(a, b);
 }

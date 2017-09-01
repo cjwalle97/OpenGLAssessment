@@ -32,9 +32,9 @@ private:
 public:
 	GeometryApp();
 	~GeometryApp();
-	void generateGrid(unsigned int rows, unsigned int columns) {}
-	virtual void startup(int a, int b) {};
-	virtual void shutdown() {};
-	virtual void draw() {};
-	virtual void update() {};
+	virtual void generateGrid(unsigned int rows, unsigned int columns) {}
+	virtual void startup(int a, int b) {}
+	virtual void shutdown() {}
+	virtual void draw() {}
+	virtual void update() {}
 };

@@ -19,8 +19,8 @@ public:
 	~CameraApp();
 
 	// Inherited via Application
-	virtual void startup(GLFWwindow* window, GLFWmonitor* monitor);
-	virtual void shutdown(GLFWwindow* window);
-	virtual void update(GLFWwindow* window, GLFWmonitor* monitor);
-	virtual void draw();
+	virtual void startup(GLFWwindow* window, GLFWmonitor* monitor) {}
+	virtual void shutdown(GLFWwindow* window) {}
+	virtual void update(GLFWwindow* window, GLFWmonitor* monitor) {}
+	virtual void draw() {}
 };
