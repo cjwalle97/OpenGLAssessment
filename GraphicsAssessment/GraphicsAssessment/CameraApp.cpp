@@ -11,9 +11,8 @@ CameraApp::~CameraApp()
 {
 }
 
-void CameraApp::startup(GLFWwindow* window, GLFWmonitor* monitor)
-{
-	glm::vec3 v = glm::vec3(1, 1, 1);
+void CameraApp::startup()
+{glm::vec3 v = glm::vec3(1, 1, 1);
 
 	if (!glfwInit())
 	{
@@ -28,16 +27,41 @@ void CameraApp::startup(GLFWwindow* window, GLFWmonitor* monitor)
 	printf("gl: %i.%i\n", major, minor);
 }
 
-void CameraApp::shutdown(GLFWwindow* window)
+void CameraApp::shutdown()
 {
+}
 
-	glfwSetWindowShouldClose(window, true);
+void CameraApp::update(float deltaTime)
+{
+}
+
+void CameraApp::draw()
+{
+}
+
+void CameraApp::startup()
+{
+}
+
+void CameraApp::shutdown()
+{
+	glfwSetWindowShouldClose(m_window, true);
 	Gizmos::destroy();
-	glfwDestroyWindow(window);
+	glfwDestroyWindow(m_window);
 	glfwTerminate();
 }
 
-void CameraApp::update(GLFWwindow* window, GLFWmonitor* monitor)
+void CameraApp::update(float deltaTime)
+{
+}
+ 
+void CameraApp::shutdown()
+{
+
+	
+}
+
+void CameraApp::update(float delta_time)
 {
 	glClearColor(0.3f, 1.0f, 0.3f, 1.0f);
 	glm::vec4 clearcolor = glm::vec4(0.2f, 0.2f, 0.5f, 1.0f);

@@ -14,7 +14,7 @@
 int main()
 {
 	//GeometryApp* m_geoApp = new GeometryApp();
-	CameraApp* m_app = new CameraApp();
+	Application* m_app = new CameraApp();
 
 	mat4 local = mat4(0.f);
 	mat4 model = mat4(1.f);
@@ -48,8 +48,7 @@ int main()
 	glfwMakeContextCurrent(window);
 	assert(window != nullptr);
 
-	m_app->startup(window, monitor);
-	m_app->update(window, monitor);
+	
 	
 	return 0;
 }
