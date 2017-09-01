@@ -12,6 +12,7 @@
 
 using glm::vec3;
 using glm::vec4;
+using glm::mat4;
 
 #pragma once
 class GeometryApp :
@@ -22,6 +23,7 @@ private:
 	unsigned int m_VBO;
 	unsigned int m_IBO;
 	unsigned int m_programID;
+	mat4 m_projectionViewMatrix;
 	struct Vertex
 	{
 		vec4 position;

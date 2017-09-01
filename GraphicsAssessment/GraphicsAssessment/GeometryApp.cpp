@@ -74,19 +74,13 @@ void GeometryApp::generateGrid(unsigned int rows, unsigned int columns)
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 	delete[] aoVertices;
-}
-
-void GeometryApp::startup(int a, int b)
-{
-	generateGrid(a, b);
-
 	const char* vsSource = "#version 410\n \
 layout(location=0) in vec4 position; \
 layout(location=1) in vec4 color; \
 out vec4 vColor; \
 uniform mat4 projectionViewWorldMatrix; \
 void main() {vColor = color; gl_Position = projectionViewWorldMatrix * position; }";
-	
+
 	const char* fsSource = "#version 410\n \
 in vec4 vColor; \
 out vec4 fragColor; \
@@ -118,6 +112,21 @@ void main() {fragColor = vColor;}";
 		printf("%s\n", infoLog);
 		delete[] infoLog;
 	}
+
+	glUseProgram(m_programID);
+	unsigned int projectionViewUniform = glGetUniformLocation(m_programID, "projectionViewWorldMatrix");
+	glUniformMatrix4fv(projectionViewUniform, 1, false, glm::value_ptr(m_projectionViewMatrix));	glBindVertexArray(m_VAO);
+	unsigned int indexCount = (rows - 1) * (columns - 1) * 6;
+	glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, 0);
+
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
+
 	glDeleteShader(fragmentShader);
 	glDeleteShader(vertexShader);
+}
+
+void GeometryApp::startup(int a, int b)
+{
+	generateGrid(a, b);
 }

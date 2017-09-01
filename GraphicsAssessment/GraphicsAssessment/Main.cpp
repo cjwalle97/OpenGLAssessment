@@ -1,5 +1,6 @@
 #include "Camera.h"
 #include "CameraApp.h"
+#include "GeometryApp.h"
 #include "Gizmos.h"
 #include <GLFW\glfw3.h>
 #include <stdio.h>
@@ -12,6 +13,7 @@
 
 int main()
 {
+	GeometryApp* m_geoApp = new GeometryApp();
 	CameraApp* m_app = new CameraApp();
 
 	mat4 local = mat4(0.f);
@@ -24,7 +26,11 @@ int main()
 	float Far = 4.f;
 	float AspectRatio = 16 / 9;
 	float FOV = 4.f;
+	int a = 1;
+	int b = 4;
 
+
+	m_geoApp->startup(a, b);
 	Camera* m_camera = new Camera(local, model);
 
 	vec3 eye = vec3(10, 10, 10);
