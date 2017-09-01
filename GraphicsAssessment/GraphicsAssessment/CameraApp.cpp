@@ -2,17 +2,13 @@
 
 
 
-CameraApp::CameraApp()
-{
-}
+CameraApp::CameraApp() {}
 
-
-CameraApp::~CameraApp()
-{
-}
+CameraApp::~CameraApp() {}
 
 void CameraApp::startup()
-{glm::vec3 v = glm::vec3(1, 1, 1);
+{
+	glm::vec3 v = glm::vec3(1, 1, 1);
 
 	if (!glfwInit())
 	{
@@ -29,36 +25,10 @@ void CameraApp::startup()
 
 void CameraApp::shutdown()
 {
-}
-
-void CameraApp::update(float deltaTime)
-{
-}
-
-void CameraApp::draw()
-{
-}
-
-void CameraApp::startup()
-{
-}
-
-void CameraApp::shutdown()
-{
 	glfwSetWindowShouldClose(m_window, true);
 	Gizmos::destroy();
 	glfwDestroyWindow(m_window);
 	glfwTerminate();
-}
-
-void CameraApp::update(float deltaTime)
-{
-}
- 
-void CameraApp::shutdown()
-{
-
-	
 }
 
 void CameraApp::update(float delta_time)
@@ -89,19 +59,19 @@ void CameraApp::update(float delta_time)
 			Gizmos::addLine(glm::vec3(10, 0, -10 + i), glm::vec3(-10, 0, -10 + i), i == 10 ? white : black);
 		}
 
-		if (glfwWindowShouldClose(window))
+		if (glfwWindowShouldClose(m_window))
 		{
-			CameraApp::shutdown(window);
+			CameraApp::shutdown();
 			break;
 		}
 
-		if (glfwGetKey(window, GLFW_KEY_ESCAPE))
+		if (glfwGetKey(m_window, GLFW_KEY_ESCAPE))
 		{
-			CameraApp::shutdown(window);
+			CameraApp::shutdown();
 			break;
 		}
 
-		if (glfwGetKey(window, GLFW_KEY_F))
+		if (glfwGetKey(m_window, GLFW_KEY_F))
 		{
 			clearcolor.r -= 0.1f;
 			clearcolor.b -= 0.1f;
@@ -111,7 +81,7 @@ void CameraApp::update(float delta_time)
 		glClearColor(clearcolor.r, clearcolor.g, clearcolor.b, clearcolor.a);
 		Gizmos::draw(projection * view);
 		Gizmos::clear();
-		glfwSwapBuffers(window);
+		glfwSwapBuffers(m_window);
 		glfwPollEvents();
 	}
 

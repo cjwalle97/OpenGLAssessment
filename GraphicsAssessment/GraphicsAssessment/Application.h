@@ -1,3 +1,4 @@
+
 #pragma once
 class GLFWwindow;
 class Application

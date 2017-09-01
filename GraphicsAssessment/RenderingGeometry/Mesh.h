@@ -1,3 +1,5 @@
+#pragma once
+
 #include <GLFW\glfw3.h>
 #include <stdio.h>
 #include <assert.h>
@@ -9,7 +11,6 @@
 #include <iostream>
 
 using glm::vec4;
-#pragma once
 
 class Mesh
 {
@@ -28,11 +29,11 @@ private:
 public:
 	Mesh();
 	~Mesh();
-	void CreateBuffers() {}
-	//void initialize(std::vector<Vector>8verts, std::vector<unsigned int>8indices) {}
+	void CreateBuffers();
+	//void initialize(std::vector<Vector>8verts, std::vector<unsigned int>8indices);
 
-	void bind() {}
-	void unbind() {}
-	unsigned int index_Count() {}
-	unsigned int vector_Count() {}
+	void bind();
+	void unbind();
+	unsigned int index_Count();
+	unsigned int vector_Count();
 };

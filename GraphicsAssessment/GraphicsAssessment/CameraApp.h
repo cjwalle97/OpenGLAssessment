@@ -23,4 +23,4 @@ public:
 	virtual void shutdown() override;
 	virtual void update(float deltaTime) override;
 	virtual void draw() override;
-}
+};

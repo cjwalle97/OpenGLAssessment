@@ -1,5 +1,24 @@
-﻿  Main.cpp
-cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
+﻿  Transform.cpp
+  Main.cpp
+c:\users\s178068\documents\github\cjw1176_graphics_assessment_part_1\graphicsassessment\graphicsassessment\application.h(3): warning C4099: 'GLFWwindow': type name first seen using 'struct' now seen using 'class'
+  c:\users\s178068\documents\github\cjw1176_graphics_assessment_part_1\graphicsassessment\dependencies\glfw\include\glfw\glfw3.h(789): note: see declaration of 'GLFWwindow'
+  Gizmos.cpp
+  GLM: GLM_SWIZZLE is deprecated, use GLM_FORCE_SWIZZLE instead
+  CameraApp.cpp
+c:\users\s178068\documents\github\cjw1176_graphics_assessment_part_1\graphicsassessment\graphicsassessment\application.h(3): warning C4099: 'GLFWwindow': type name first seen using 'struct' now seen using 'class'
+  c:\users\s178068\documents\github\cjw1176_graphics_assessment_part_1\graphicsassessment\dependencies\glfw\include\glfw\glfw3.h(789): note: see declaration of 'GLFWwindow'
+c:\users\s178068\documents\github\cjw1176_graphics_assessment_part_1\graphicsassessment\graphicsassessment\cameraapp.cpp(23): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 1 has type 'int (__cdecl *)(void)'
+c:\users\s178068\documents\github\cjw1176_graphics_assessment_part_1\graphicsassessment\graphicsassessment\cameraapp.cpp(23): warning C4477: 'printf' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'int (__cdecl *)(void)'
+  Camera.cpp
+  Application.cpp
+c:\users\s178068\documents\github\cjw1176_graphics_assessment_part_1\graphicsassessment\dependencies\glfw\include\glfw\glfw3.h(789): warning C4099: 'GLFWwindow': type name first seen using 'class' now seen using 'struct'
+  c:\users\s178068\documents\github\cjw1176_graphics_assessment_part_1\graphicsassessment\graphicsassessment\application.h(3): note: see declaration of 'GLFWwindow'
+c:\users\s178068\documents\github\cjw1176_graphics_assessment_part_1\graphicsassessment\graphicsassessment\application.cpp(28): warning C4552: '-': operator has no effect; expected operator with side-effect
+c:\users\s178068\documents\github\cjw1176_graphics_assessment_part_1\graphicsassessment\graphicsassessment\application.cpp(30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\s178068\documents\github\cjw1176_graphics_assessment_part_1\graphicsassessment\graphicsassessment\application.cpp(32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  gl_core_4_4.c
 LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-  GraphicsAssessment.vcxproj -> C:\Users\s178068\Documents\GitHub\cjw1176_Graphics_Assessment_part_1\GraphicsAssessment\Debug\GraphicsAssessment.exe
-  GraphicsAssessment.vcxproj -> C:\Users\s178068\Documents\GitHub\cjw1176_Graphics_Assessment_part_1\GraphicsAssessment\Debug\GraphicsAssessment.pdb (Partial PDB)
+Application.obj : error LNK2019: unresolved external symbol "public: virtual void __thiscall Application::update(float)" (?update@Application@@UAEXM@Z) referenced in function "public: virtual void __thiscall Application::run(char const *,unsigned int,unsigned int,bool)" (?run@Application@@UAEXPBDII_N@Z)
+Application.obj : error LNK2019: unresolved external symbol "public: virtual void __thiscall Application::draw(void)" (?draw@Application@@UAEXXZ) referenced in function "public: virtual void __thiscall Application::run(char const *,unsigned int,unsigned int,bool)" (?run@Application@@UAEXPBDII_N@Z)
+C:\Users\s178068\Documents\GitHub\cjw1176_Graphics_Assessment_part_1\GraphicsAssessment\Debug\GraphicsAssessment.exe : fatal error LNK1120: 2 unresolved externals
