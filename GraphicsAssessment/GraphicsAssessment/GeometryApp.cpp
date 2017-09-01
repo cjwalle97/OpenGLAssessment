@@ -12,7 +12,6 @@ GeometryApp::~GeometryApp()
 }
 
 
-
 // function to create a Grid
 void GeometryApp::generateGrid(unsigned int rows, unsigned int columns)
 {
