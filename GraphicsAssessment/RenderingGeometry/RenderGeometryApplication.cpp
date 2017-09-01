@@ -32,6 +32,6 @@ void RenderGeometryApplication::draw()
 {
 	ImGui_ImplGlfwGL3_NewFrame();
 	ImGui::Begin("chris");
-	ImGui::Text("Hello world");
+	ImGui::Text("I'm not though");
 	ImGui::End();
 }

@@ -117,9 +117,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="mesh.cpp" />
     <ClCompile Include="RenderGeometryApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="mesh.h" />
     <ClInclude Include="RenderGeometryApplication.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
