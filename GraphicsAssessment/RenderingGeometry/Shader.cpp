@@ -21,7 +21,22 @@ void Shader::unbind()
 
 }
 
-void Shader::load()
+void Shader::load(const char * filename, unsigned int type)
+{
+
+}
+
+void Shader::attach()
+{
+
+}
+
+void Shader::defaultLoad()
+{
+
+}
+
+unsigned int Shader::getUniform(const char *)
 {
 
 }
