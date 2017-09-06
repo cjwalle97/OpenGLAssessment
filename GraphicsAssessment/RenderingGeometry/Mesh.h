@@ -12,14 +12,15 @@
 
 using glm::vec4;
 
+struct Vertex
+{
+	vec4 position;
+	vec4 color;
+};
+
 class Mesh
 {
-private:
-	struct Vertex
-	{
-		vec4 position;
-		vec4 color;
-	};
+private:	
 	unsigned int m_vao;
 	unsigned int m_vbo;
 	unsigned int m_ibo;
