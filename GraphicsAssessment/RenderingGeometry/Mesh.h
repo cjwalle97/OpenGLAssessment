@@ -32,9 +32,7 @@ public:
 	~Mesh();
 	void CreateBuffers();
 	//void initialize(std::vector<Vector>8verts, std::vector<unsigned int>8indices);
-
-	void bind();
-	void unbind();
+	//void draw(GLunit mode);
 	unsigned int index_Count();
 	unsigned int vector_Count();
 };
