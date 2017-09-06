@@ -119,10 +119,12 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="mesh.cpp" />
     <ClCompile Include="RenderGeometryApplication.cpp" />
+    <ClCompile Include="Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="mesh.h" />
     <ClInclude Include="RenderGeometryApplication.h" />
+    <ClInclude Include="Shader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
