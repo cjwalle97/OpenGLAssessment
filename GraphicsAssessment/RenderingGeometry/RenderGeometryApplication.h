@@ -11,7 +11,7 @@ class RenderGeometryApplication :
 	public Application
 {
 private:
-	vec3 m_halfCircle[];
+	vec4 m_halfCircle[];
 
 public:
 	RenderGeometryApplication();
