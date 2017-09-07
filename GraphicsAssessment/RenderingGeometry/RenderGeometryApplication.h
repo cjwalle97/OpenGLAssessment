@@ -1,14 +1,14 @@
 #pragma once
-
+#include <vector>
 #include <Application.h>
+#include "Shader.h"
+#include "mesh.h"
+
 class RenderGeometryApplication :
 	public Application
 {
 private:
-	struct Vector
-	{
-
-	}
+	vec4 m_halfCircle;
 
 public:
 	RenderGeometryApplication();
@@ -19,6 +19,6 @@ public:
 	virtual void shutdown() override;
 	virtual void update(float) override;
 	virtual void draw() override;
-	//virtual void generateHalfCircle(float radius, unsigned int points);
-	//virtual void rotatePoints(Vector<Point> points, float nm);
+	virtual void generateHalfCircle(float radius, unsigned int points);
+	virtual void rotatePoints(std::vector<Vertex> points, float nm);
 };

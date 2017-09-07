@@ -1,6 +1,4 @@
 #include "RenderGeometryApplication.h"
-#include "Shader.h"
-#include "mesh.h"
 #include <imgui.h>
 #include <imgui_impl_glfw_gl3.h>
 #include <gl_core_4_4.h>
@@ -39,13 +37,19 @@ void RenderGeometryApplication::draw()
 	ImGui::End();
 }
 
-//void RenderGeometryApplication::generateHalfCircle(float radius, unsigned int points)
-//{
-//	assert(points <= 2);
-//	
-//}
+void RenderGeometryApplication::generateHalfCircle(float radius, unsigned int points)
+{
+	if (points <= 2)
+	{
+		printf("not enough points");
+	}
+	else
+	{
+		
+	}
+}
 
-//void rotatePoints(Vector<Point> points, size_t nm)
-//{
-//
-//}
+void rotatePoints(std::vector<Vertex> points, size_t nm)
+{
+
+}
