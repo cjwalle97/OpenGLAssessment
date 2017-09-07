@@ -39,13 +39,22 @@ void RenderGeometryApplication::draw()
 
 void RenderGeometryApplication::generateHalfCircle(float radius, unsigned int points)
 {
-	if (points <= 2)
+	assert(points >= 3);
+	
+	float PI = 3.14159265359;
+	int Sections = points - 1;
+	float Angle = PI / Sections;
+	vec4 startPoint;
+	startPoint.x = Angle * radius;
+	startPoint.y = Angle * radius;
+	startPoint.z = 0.f;
+	m_halfCircle[0] = startPoint;
+	
+	vec4 currentPoint;
+	for (int k = 0; k < points - 1; k++)
 	{
-		printf("not enough points");
-	}
-	else
-	{
-		
+		currentPoint.x = startPoint.y * Angle
+		m_halfCircle[k] = currentPoint;
 	}
 }
 

@@ -1,14 +1,17 @@
 #pragma once
-#include <vector>
-#include <Application.h>
 #include "Shader.h"
 #include "mesh.h"
+#include <vector>
+#include <Application.h>
+#include <glm\vec3.hpp>
+
+using glm::vec3;
 
 class RenderGeometryApplication :
 	public Application
 {
 private:
-	vec4 m_halfCircle;
+	vec3 m_halfCircle[];
 
 public:
 	RenderGeometryApplication();
@@ -20,5 +23,5 @@ public:
 	virtual void update(float) override;
 	virtual void draw() override;
 	virtual void generateHalfCircle(float radius, unsigned int points);
-	virtual void rotatePoints(std::vector<Vertex> points, float nm);
+	virtual void rotatePoints(std::vector<Vertex> points, size_t nm);
 };
