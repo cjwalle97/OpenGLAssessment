@@ -50,8 +50,18 @@ void RenderGeometryApplication::generateHalfCircle(float radius, unsigned int po
 	//y = sin(angle) //when angle = 1 then y = 0
 
 	//angle is the number of points -1 *
+	float angle = PI / (points - 1);
 	for (int i = 0; i < points; i++)
 	{
+		if (i >= points / 2)
+		{
+			pt = vec4(pt.x - cos(angle), pt.y - sin(angle), 0, 1);
+		}
+		else
+		{
+			pt = vec4(pt.x + cos(angle), pt.y + sin(angle), 0, 1);
+
+		}
 		m_halfCircle.push_back(pt);
 	}
 
