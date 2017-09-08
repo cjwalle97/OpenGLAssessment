@@ -79,6 +79,11 @@ void rotatePoints(std::vector<vec4> points, size_t nm)
 		for (int j = 0; j < points.size; j++)
 		{
 			float x = points[j].x;
+			float y = points[j].y;
+			float z = points[j].z;
+			float xPrime = (x * cos(phi)) + (z * sin(phi));
+			float yPrime = y;
+			float zPrime = (z * cos(phi)) - (x * sin(phi));
 		}
 	}
 }
