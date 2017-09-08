@@ -1,8 +1,5 @@
 #include "RenderGeometryApplication.h"
-#include <imgui.h>
-#include <imgui_impl_glfw_gl3.h>
-#include <gl_core_4_4.h>
-#include <iostream>
+
 
 RenderGeometryApplication::RenderGeometryApplication()
 {
@@ -16,7 +13,7 @@ RenderGeometryApplication::~RenderGeometryApplication()
 
 void RenderGeometryApplication::startup()
 {
-	
+
 }
 
 void RenderGeometryApplication::shutdown()
@@ -28,37 +25,40 @@ void RenderGeometryApplication::update(float)
 {
 
 }
-
+static float sradius = 1;
+static float spoints = 3;
 void RenderGeometryApplication::draw()
 {
 	ImGui_ImplGlfwGL3_NewFrame();
 	ImGui::Begin("chris");
 	ImGui::Text("I'm not though");
+	ImGui::DragFloat("Radius", &sradius);
+	ImGui::DragFloat("Number of points", &spoints);
+	if (ImGui::Button("generate halfcircle"))
+		generateHalfCircle(sradius, spoints);
+
 	ImGui::End();
 }
-
+float PI = 3.14159265359;
 void RenderGeometryApplication::generateHalfCircle(float radius, unsigned int points)
 {
 	assert(points >= 3);
-	
-	float PI = 3.14159265359;
-	int Sections = points - 1;
-	float Angle = PI / Sections;
-	vec4 startPoint;
-	startPoint.x = Angle * radius;
-	startPoint.y = Angle * radius;
-	startPoint.z = 0.f;
-	m_halfCircle[0] = startPoint;
-	
-	vec4 currentPoint;
-	for (int k = 0; k < points - 1; k++)
+
+	vec4 pt = vec4(0, 0, 0, 1);
+	//generating a half circle
+	//x = cos(angle) //when angle = 0 then x = 1
+	//y = sin(angle) //when angle = 1 then y = 0
+
+	//angle is the number of points -1 *
+	for (int i = 0; i < points; i++)
 	{
-		currentPoint.x = startPoint.y * Angle
-		m_halfCircle[k] = currentPoint;
+		m_halfCircle.push_back(pt);
 	}
+
+	printf("radius is %f, numpoints is %f\n", sradius, spoints);
 }
 
-void rotatePoints(std::vector<Vertex> points, size_t nm)
-{
-
-}
+//void rotatePoints(std::vector<Vertex> points, size_t nm)
+//{
+//
+//}

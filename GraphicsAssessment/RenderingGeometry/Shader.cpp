@@ -58,7 +58,7 @@ void Shader::defaultLoad()
 
 }
 
-unsigned int Shader::getUniform(const char *)
-{
-
-}
+//unsigned int Shader::getUniform(const char *)
+//{
+//
+//}
