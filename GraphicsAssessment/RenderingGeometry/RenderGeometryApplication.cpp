@@ -55,11 +55,11 @@ void RenderGeometryApplication::generateHalfCircle(float radius, unsigned int po
 	{
 		if (i >= points / 2)
 		{
-			pt = vec4(pt.x - cos(angle), pt.y - sin(angle), 0, 1);
+			//pt = vec4(pt.x - cos(angle), pt.y - sin(angle), 0, 1);
 		}
 		else
 		{
-			pt = vec4(pt.x + cos(angle), pt.y + sin(angle), 0, 1);
+			//pt = vec4(pt.x + cos(angle), pt.y + sin(angle), 0, 1);
 
 		}
 		m_halfCircle.push_back(pt);
