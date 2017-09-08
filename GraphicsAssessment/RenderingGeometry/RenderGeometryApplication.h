@@ -22,5 +22,5 @@ public:
 	virtual void update(float) override;
 	virtual void draw() override;
 	virtual void generateHalfCircle(float radius, unsigned int points);
-	//virtual void rotatePoints(std::vector<Vertex> points, size_t nm);
+	virtual void rotatePoints(std::vector<vec4> points, size_t nm);
 };

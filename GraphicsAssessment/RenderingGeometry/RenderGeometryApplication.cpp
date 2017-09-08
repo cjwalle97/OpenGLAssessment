@@ -36,7 +36,8 @@ void RenderGeometryApplication::draw()
 	ImGui::DragFloat("Number of points", &spoints);
 	if (ImGui::Button("generate halfcircle"))
 		generateHalfCircle(sradius, spoints);
-
+	if(ImGui::Button("rotate points"))
+		rotatePoints(m_halfCircle, )
 	ImGui::End();
 }
 float PI = 3.14159265359;
@@ -44,31 +45,27 @@ void RenderGeometryApplication::generateHalfCircle(float radius, unsigned int po
 {
 	assert(points >= 3);
 
-	vec4 pt = vec4(0, 0, 0, 1);
+
 	//generating a half circle
 	//x = cos(angle) //when angle = 0 then x = 1
 	//y = sin(angle) //when angle = 1 then y = 0
-
+	float slice = PI / points;
+	
 	//angle is the number of points -1 *
-	float angle = PI / (points - 1);
+	
 	for (int i = 0; i < points; i++)
 	{
-		if (i >= points / 2)
-		{
-			//pt = vec4(pt.x - cos(angle), pt.y - sin(angle), 0, 1);
-		}
-		else
-		{
-			//pt = vec4(pt.x + cos(angle), pt.y + sin(angle), 0, 1);
-
-		}
+		float angle = i * slice;
+		float x = cos(angle);
+		float y = sin(angle);
+		vec4 pt = vec4(x, y, 0, 1);
 		m_halfCircle.push_back(pt);
 	}
 
 	printf("radius is %f, numpoints is %f\n", sradius, spoints);
 }
 
-//void rotatePoints(std::vector<Vertex> points, size_t nm)
-//{
-//
-//}
+void rotatePoints(std::vector<vec4> points, size_t nm)
+{
+
+}
