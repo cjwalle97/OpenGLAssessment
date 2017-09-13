@@ -56,7 +56,7 @@ void RenderGeometryApplication::generateHalfCircle(float radius, unsigned int po
 	//generating a half circle
 	//x = cos(angle) //when angle = 0 then x = 1
 	//y = sin(angle) //when angle = 1 then y = 0
-	float slice = PI / points;
+	float slice = PI / (points - 1);
 	
 	//angle is the number of points -1 *
 	
@@ -84,9 +84,9 @@ void rotatePoints(std::vector<vec4> points, size_t nm)
 			float y = points[j].y;
 			float z = points[j].z;
 			vec4 Prime;
-			Prime.x = (x * cos(phi)) + (z * sin(phi));
-			Prime.y = y;
-			Prime.z = (z * cos(phi)) - (x * sin(phi));
+			Prime.x = x;
+			Prime.y = (y * cos(phi)) + (z * sin(phi));
+			Prime.z = (z * cos(phi)) - (y * sin(phi));
 		}
 	}
 }
