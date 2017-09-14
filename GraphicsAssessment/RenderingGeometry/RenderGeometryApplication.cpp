@@ -45,7 +45,7 @@ void RenderGeometryApplication::draw()
 	if (ImGui::Button("rotate points"))
 	{
 		rotatePoints(m_halfCircle, meridians);
-		printf("Rotates the Points");
+		printf("Rotates the Points \n");
 	}
 	ImGui::End();
 }
