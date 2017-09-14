@@ -47,6 +47,10 @@ void RenderGeometryApplication::draw()
 		rotatePoints(m_halfCircle, meridians);
 		printf("Rotates the Points \n");
 	}
+	if (ImGui::Button("Draw Sphere"))
+	{
+		draw();
+	}
 	ImGui::End();
 }
 

@@ -17,7 +17,7 @@ Shader::~Shader()
 
 void Shader::bind()
 {
-
+	
 }
 
 void Shader::unbind()
