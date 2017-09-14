@@ -70,10 +70,9 @@ void RenderGeometryApplication::generateHalfCircle(float radius, unsigned int po
 		float x = cos(angle);
 		float y = sin(angle);
 		vec4 pt = vec4(x, y, 0, 1);
-		m_halfCircle.push_back(pt);
-		m_sphere.push_back(pt);
+		m_halfCircle.push_back(pt);	
 	}
-
+	m_halfCircleMade = true;
 	printf("radius is %f, numpoints is %f\n", sradius, spoints);
 }
 
