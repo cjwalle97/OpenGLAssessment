@@ -11,6 +11,8 @@ class RenderGeometryApplication :
 {
 private:
 	std::vector<vec4> m_halfCircle;
+	std::vector<vec4> m_sphere;
+	bool m_halfCircleMade;
 
 public:
 	RenderGeometryApplication();

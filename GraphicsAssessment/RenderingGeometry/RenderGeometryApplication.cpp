@@ -71,6 +71,7 @@ void RenderGeometryApplication::generateHalfCircle(float radius, unsigned int po
 		float y = sin(angle);
 		vec4 pt = vec4(x, y, 0, 1);
 		m_halfCircle.push_back(pt);
+		m_sphere.push_back(pt);
 	}
 
 	printf("radius is %f, numpoints is %f\n", sradius, spoints);
@@ -78,19 +79,27 @@ void RenderGeometryApplication::generateHalfCircle(float radius, unsigned int po
 
 void RenderGeometryApplication::rotatePoints(std::vector<vec4> points, size_t nm)
 {
-	float slice = (2 * PI) / nm;
-	for (int i = 0; i <= nm; i++)
+	if (m_halfCircleMade == true)
 	{
-		float phi = i * slice;
-		for (int j = 0; j < points.size(); j++)
+		float slice = (2 * PI) / nm;
+		for (int i = 0; i <= nm; i++)
 		{
-			float x = points[j].x;
-			float y = points[j].y;
-			float z = points[j].z;
-			vec4 Prime;
-			Prime.x = x;
-			Prime.y = (y * cos(phi)) + (z * sin(phi));
-			Prime.z = (z * cos(phi)) - (y * sin(phi));
+			float phi = i * slice;
+			for (int j = 0; j < points.size(); j++)
+			{
+				float x = points[j].x;
+				float y = points[j].y;
+				float z = points[j].z;
+				vec4 Prime;
+				Prime.x = x;
+				Prime.y = (y * cos(phi)) + (z * sin(phi));
+				Prime.z = (z * cos(phi)) - (y * sin(phi));
+				m_sphere.push_back(Prime);
+			}
 		}
+	}
+	else
+	{
+		printf("No Half Circle Generated \n");
 	}
 }
