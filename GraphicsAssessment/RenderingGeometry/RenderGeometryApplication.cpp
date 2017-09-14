@@ -39,10 +39,14 @@ void RenderGeometryApplication::draw()
 	ImGui::DragFloat("Number of points", &spoints);
 	ImGui::DragFloat("Number of Meridians", &meridians);
 	if (ImGui::Button("generate halfcircle"))
+	{
 		generateHalfCircle(sradius, spoints);
+	}
 	if (ImGui::Button("rotate points"))
+	{
 		rotatePoints(m_halfCircle, meridians);
 		printf("Rotates the Points");
+	}
 	ImGui::End();
 }
 
@@ -57,9 +61,9 @@ void RenderGeometryApplication::generateHalfCircle(float radius, unsigned int po
 	//x = cos(angle) //when angle = 0 then x = 1
 	//y = sin(angle) //when angle = 1 then y = 0
 	float slice = PI / (points - 1);
-	
+
 	//angle is the number of points -1 *
-	
+
 	for (int i = 0; i < points; i++)
 	{
 		float angle = i * slice;
@@ -72,13 +76,13 @@ void RenderGeometryApplication::generateHalfCircle(float radius, unsigned int po
 	printf("radius is %f, numpoints is %f\n", sradius, spoints);
 }
 
-void rotatePoints(std::vector<vec4> points, size_t nm)
+void RenderGeometryApplication::rotatePoints(std::vector<vec4> points, size_t nm)
 {
 	float slice = (2 * PI) / nm;
-	for (int i = 0; i <= nm; i++) 
+	for (int i = 0; i <= nm; i++)
 	{
 		float phi = i * slice;
-		for (int j = 0; j < points.size; j++)
+		for (int j = 0; j < points.size(); j++)
 		{
 			float x = points[j].x;
 			float y = points[j].y;
