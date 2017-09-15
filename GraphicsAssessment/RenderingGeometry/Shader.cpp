@@ -17,17 +17,27 @@ Shader::~Shader()
 
 void Shader::bind()
 {
-	
+	glUseProgram(m_program);
 }
 
 void Shader::unbind()
 {
-
+	glUseProgram(0);
 }
 
 //loads a File with the name of the inputed constant chararacter pointer and then runs it the inputed type of Shader
 void Shader::load(const char * filename, unsigned int type)
 {
+	std::string line, contents;
+	std::ifstream in(filename);
+
+	while (std::getline(in, line))
+	{
+		contents += line + "\n";
+	}
+
+	const char* data = contents.c_str();
+
 	switch (type)
 	{
 	case GL_FRAGMENT_SHADER:
@@ -50,6 +60,13 @@ void Shader::load(const char * filename, unsigned int type)
 
 void Shader::attach()
 {
+	m_program = glCreateProgram();
+	glAttachShader(m_program, m_vertexShader);
+	glAttachShader(m_program, m_fragmentShader);
+	glLinkProgram(m_program);
+
+	int success = GL_FALSE;
+	glGetProgramiv(m_program, GL_LINK_STATUS, &success);
 
 }
 
@@ -58,7 +75,7 @@ void Shader::defaultLoad()
 
 }
 
-//unsigned int Shader::getUniform(const char *)
-//{
-//
-//}
+unsigned int Shader::getUniform(const char* name)
+{
+
+}

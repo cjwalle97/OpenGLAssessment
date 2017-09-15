@@ -1,5 +1,6 @@
 #pragma once
-
+#include <GLFW\glfw3.h>
+#include <gl_core_4_4.h>
 #include <stdio.h>
 #include <assert.h>
 #include <glm\vec4.hpp>
@@ -8,6 +9,7 @@
 #include <glm\glm.hpp>
 #include <glm\ext.hpp>
 #include <iostream>
+#include <vector>
 
 using glm::vec4;
 
@@ -23,16 +25,16 @@ private:
 	unsigned int m_vao;
 	unsigned int m_vbo;
 	unsigned int m_ibo;
-	//std::vector<unsigned int> m_indices;
-	//std::vector<Vertex> m_vertices;
+	std::vector<unsigned int> m_indices;
+	std::vector<Vertex> m_vertices;
 
 public:
 	Mesh();
 	~Mesh();
 	void CreateBuffers();
-	//void initialize(std::vector<Vector>8verts, std::vector<unsigned int>8indices);
-	//void draw(GLunit mode);
-	unsigned int index_Count();
-	unsigned int vector_Count();
+	void Bind();
+	void Unbind();
+	void initialize(std::vector<Vertex> verts, std::vector<unsigned int> indices);
+	unsigned int m_index_Count;
+	unsigned int m_vertex_Count;
 };
-
