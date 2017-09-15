@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <Application.h>
+#include <Camera.h>
 #include <imgui.h>
 #include <imgui_impl_glfw_gl3.h>
 
@@ -14,6 +15,9 @@ private:
 	std::vector<vec4> m_halfCircle;
 	std::vector<vec4> m_sphere;
 	bool m_halfCircleMade;
+	Mesh* m_mesh;
+	Shader* m_shader;
+	Camera* m_camera;
 
 public:
 	RenderGeometryApplication();

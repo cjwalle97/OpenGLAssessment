@@ -1,6 +1,6 @@
 #pragma once
-#include <GLFW\glfw3.h>
 #include <gl_core_4_4.h>
+#include <GLFW\glfw3.h>
 #include <stdio.h>
 #include <assert.h>
 #include <glm\vec4.hpp>

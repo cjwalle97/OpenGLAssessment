@@ -1,20 +1,16 @@
 #pragma once
-#include <GLFW\glfw3.h>
-#include <imgui.h>
-#include <imgui_impl_glfw_gl3.h>
-#include <gl_core_4_4.h>
 #include <string>
 #include <fstream>
 #include <iostream>
-
+#include <gl_core_4_4.h>
 
 class Shader
 {
 public:
 	Shader();
 	~Shader();
-	void bind();
-	void unbind();
+	void Bind();
+	void Unbind();
 	void load(const char * filename, unsigned int type);
 	void attach();
 	void defaultLoad();
@@ -22,8 +18,8 @@ public:
 
 	unsigned int m_vertexShader;
 	unsigned int m_fragmentShader;
-	const char* vsSource;
-	const char* fsSource;
+	const char* m_vsSource;
+	const char* m_fsSource;
 	
 
 private:

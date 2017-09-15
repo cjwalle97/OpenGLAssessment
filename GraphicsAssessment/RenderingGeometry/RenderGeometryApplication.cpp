@@ -13,12 +13,25 @@ RenderGeometryApplication::~RenderGeometryApplication()
 
 void RenderGeometryApplication::startup()
 {
+	m_camera = new Camera();
+	m_mesh = new Mesh();
+	m_shader = new Shader();
 
+	m_shader->load("/Shaders/Vertex.vert", GL_VERTEX_SHADER);
+	m_shader->load("/Shaders/Fragment.frag", GL_FRAGMENT_SHADER);
+	m_shader->attach();
+
+	std::vector<Vertex> verts;
+	std::vector<unsigned int> indices;
+
+	m_mesh->initialize(verts, indices);
+
+	m_mesh->CreateBuffers();
 }
 
 void RenderGeometryApplication::shutdown()
 {
-
+	
 }
 
 void RenderGeometryApplication::update(float)
@@ -32,12 +45,15 @@ static float meridians = 4;
 
 void RenderGeometryApplication::draw()
 {
+	m_mesh->Bind();
+	m_shader->Bind();
+
 	ImGui_ImplGlfwGL3_NewFrame();
 	ImGui::Begin("chris");
-	ImGui::Text("I'm not though");
 	ImGui::DragFloat("Radius", &sradius);
 	ImGui::DragFloat("Number of points", &spoints);
 	ImGui::DragFloat("Number of Meridians", &meridians);
+	if(ImGui::Button("Generate Plain"))
 	if (ImGui::Button("generate halfcircle"))
 	{
 		generateHalfCircle(sradius, spoints);
