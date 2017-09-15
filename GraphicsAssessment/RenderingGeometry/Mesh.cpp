@@ -14,19 +14,15 @@ void Mesh::CreateBuffers()
 {
 	glGenVertexArrays(1, &m_vao);
 
-	glGenVertexArrays(1, &m_vbo);
+	glBindVertexArray(m_vao);
 
-	glGenVertexArrays(1, &m_ibo);
+	glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
 
-	glBindVertexArray(this->m_vao);
+	glBufferData(GL_ARRAY_BUFFER, m_vertex_Count * sizeof(Vertex), this->m_vertices.data(), GL_STATIC_DRAW);
 
-	glBindBuffer(GL_ARRAY_BUFFER, this->m_vbo);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ibo);
 
-	glBufferData(GL_ARRAY_BUFFER, this->m_vertex_Count * sizeof(Vertex), this->m_vertices.data(), GL_STATIC_DRAW);
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->m_ibo);
-
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, this->m_index_Count * sizeof(unsigned int), this->m_indices.data(), GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_index_Count * sizeof(unsigned int), m_indices.data(), GL_STATIC_DRAW);
 
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);

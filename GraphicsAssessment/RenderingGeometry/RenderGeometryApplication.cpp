@@ -53,7 +53,14 @@ void RenderGeometryApplication::draw()
 	ImGui::DragFloat("Radius", &sradius);
 	ImGui::DragFloat("Number of points", &spoints);
 	ImGui::DragFloat("Number of Meridians", &meridians);
-	if(ImGui::Button("Generate Plain"))
+	if (ImGui::Button("Generate Plane"))
+	{
+		
+	}
+	if (ImGui::Button("Generate Cube"))
+	{
+
+	}
 	if (ImGui::Button("generate halfcircle"))
 	{
 		generateHalfCircle(sradius, spoints);
@@ -62,10 +69,6 @@ void RenderGeometryApplication::draw()
 	{
 		rotatePoints(m_halfCircle, meridians);
 		printf("Rotates the Points \n");
-	}
-	if (ImGui::Button("Draw Sphere"))
-	{
-		draw();
 	}
 	ImGui::End();
 }
